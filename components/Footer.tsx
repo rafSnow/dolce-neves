@@ -142,7 +142,7 @@ export function Footer() {
             {/* Redes sociais */}
             <div className="flex gap-4 mt-6">
               <a
-                href="https://instagram.com/dolceneves"
+                href="https://instagram.com/_dolceneves"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Siga a Dolce Neves no Instagram"
