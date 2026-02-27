@@ -117,7 +117,7 @@ export function Footer() {
                     fill="#C96B7A"
                   />
                 </svg>
-                Rua RB-18, Quadra 17, Lote 06, Casa 02
+                Rua RB-18, Residencial Buriti
                 <br />
                 Senador Canedo, GO - CEP 75260459
               </p>

@@ -82,7 +82,7 @@ export function About() {
                       fill="#C96B7A"
                     />
                   </svg>
-                  Rua RB-18, Quadra 17, Lote 06, Casa 02 - Senador Canedo, GO
+                  Rua RB-18, Residencial Buriti - Senador Canedo, GO
                 </p>
                 <p className="flex items-center gap-2">
                   <svg
