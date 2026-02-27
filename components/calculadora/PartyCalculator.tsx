@@ -2,10 +2,20 @@
 
 import { calculateParty } from "@/lib/party-calculator";
 import type { OccasionType, PartySuggestion } from "@/types/party-calculator";
+import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import CalculatorResult from "./CalculatorResult";
 import GuestCountInput from "./GuestCountInput";
 import OccasionSelector from "./OccasionSelector";
+
+const VALID_OCCASIONS: OccasionType[] = [
+  "casamento",
+  "aniversario_infantil",
+  "aniversario_adulto",
+  "corporativo",
+  "cha_bebe",
+  "formatura",
+];
 
 interface Product {
   id: string;
@@ -16,7 +26,14 @@ interface Product {
 }
 
 export default function PartyCalculator() {
-  const [occasion, setOccasion] = useState<OccasionType | null>(null);
+  const searchParams = useSearchParams();
+  const initialOccasion = searchParams.get("ocasiao");
+  const parsedOccasion =
+    initialOccasion && VALID_OCCASIONS.includes(initialOccasion as OccasionType)
+      ? (initialOccasion as OccasionType)
+      : null;
+
+  const [occasion, setOccasion] = useState<OccasionType | null>(parsedOccasion);
   const [guestCount, setGuestCount] = useState(50);
   const [products, setProducts] = useState<Product[]>([]);
   const [suggestion, setSuggestion] = useState<PartySuggestion | null>(null);

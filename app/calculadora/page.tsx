@@ -2,6 +2,7 @@ import PartyCalculator from "@/components/calculadora/PartyCalculator";
 import { Footer } from "@/components/Footer";
 import { SiteHeader } from "@/components/SiteHeader";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Calculadora de Festas | Dolce Neves",
@@ -31,7 +32,15 @@ export default function CalculadoraPage() {
         </div>
       </div>
 
-      <PartyCalculator />
+      <Suspense
+        fallback={
+          <div className="flex items-center justify-center py-12">
+            <div className="w-8 h-8 border-2 border-dolce-rosa border-t-transparent rounded-full animate-spin" />
+          </div>
+        }
+      >
+        <PartyCalculator />
+      </Suspense>
 
       <Footer />
     </main>

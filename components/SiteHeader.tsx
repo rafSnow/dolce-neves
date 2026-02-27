@@ -19,7 +19,9 @@ export function SiteHeader({ withShadow = false }: SiteHeaderProps) {
             alt="Logo Dolce Neves"
             width={36}
             height={36}
+            sizes="36px"
             className="rounded-full"
+            priority
           />
           <span className="font-display text-lg font-bold text-dolce-marrom group-hover:text-dolce-rosa transition-colors">
             Dolce Neves
@@ -36,6 +38,7 @@ export function SiteHeader({ withShadow = false }: SiteHeaderProps) {
           </Link>
           <Link
             href="/monte-sua-caixa"
+            prefetch={false}
             className="text-dolce-marrom/70 hover:text-dolce-rosa transition-colors"
           >
             Monte sua Caixa
@@ -48,6 +51,7 @@ export function SiteHeader({ withShadow = false }: SiteHeaderProps) {
           </Link>
           <Link
             href="/corporativo"
+            prefetch={false}
             className="text-dolce-marrom/70 hover:text-dolce-rosa transition-colors"
           >
             Corporativo

@@ -1,8 +1,13 @@
 import { SkipToContent } from "@/components/SkipToContent";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
 import type { Metadata, Viewport } from "next";
+import dynamic from "next/dynamic";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+
+const WhatsAppButton = dynamic(
+  () => import("@/components/WhatsAppButton").then((mod) => mod.WhatsAppButton),
+  { ssr: false },
+);
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -109,29 +114,31 @@ function JsonLdLocalBusiness() {
     servesCuisine: "Confeitaria Artesanal",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Rua dos Doces, 123",
-      addressLocality: "Sao Paulo",
-      addressRegion: "SP",
-      postalCode: "01000-000",
+      streetAddress: "Rua RB-18, Residencial Buriti",
+      addressLocality: "Senador Canedo",
+      addressRegion: "GO",
+      postalCode: "75260-459",
       addressCountry: "BR",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: -23.5505,
-      longitude: -46.6333,
+      latitude: -16.692531,
+      longitude: -49.078417,
     },
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "09:00",
+        dayOfWeek: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
+        opens: "08:00",
         closes: "18:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: "Saturday",
-        opens: "09:00",
-        closes: "14:00",
       },
     ],
     sameAs: ["https://instagram.com/dolceneves"],
@@ -152,6 +159,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`${playfair.variable} ${inter.variable}`}>
+      <head>
+        <link
+          rel="preconnect"
+          href="https://images.unsplash.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+      </head>
       <body className="font-body bg-dolce-creme text-dolce-marrom antialiased">
         <SkipToContent />
         <JsonLdLocalBusiness />

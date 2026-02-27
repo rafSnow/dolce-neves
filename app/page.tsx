@@ -8,6 +8,7 @@ import { PartyCalculatorPreview } from "@/components/PartyCalculatorPreview";
 import { ProductGallery } from "@/components/ProductGallery";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Testimonials } from "@/components/Testimonials";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -15,12 +16,14 @@ export default function Home() {
       <SiteHeader />
       <Hero />
       <ProductGallery />
-      <BoxBuilderCTA />
-      <PartyCalculatorPreview />
-      <HowItWorks />
-      <Testimonials />
-      <CorporateCTA />
-      <About />
+      <Suspense>
+        <BoxBuilderCTA />
+        <PartyCalculatorPreview />
+        <HowItWorks />
+        <Testimonials />
+        <CorporateCTA />
+        <About />
+      </Suspense>
       <Footer />
     </main>
   );

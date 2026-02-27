@@ -1,8 +1,21 @@
-import { BoxBuilder } from "@/components/box-builder/BoxBuilder";
 import { Footer } from "@/components/Footer";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getProducts } from "@/lib/actions/products";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
+
+const BoxBuilder = dynamic(
+  () =>
+    import("@/components/box-builder/BoxBuilder").then((mod) => mod.BoxBuilder),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex items-center justify-center py-20">
+        <div className="w-8 h-8 border-2 border-dolce-rosa border-t-transparent rounded-full animate-spin" />
+      </div>
+    ),
+  },
+);
 
 export const metadata: Metadata = {
   title: "Monte sua Caixa | Dolce Neves — Doces Personalizados",

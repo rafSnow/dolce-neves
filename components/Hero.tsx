@@ -98,11 +98,12 @@ export function Hero() {
             <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[28rem] lg:h-[28rem]">
               <div className="absolute inset-0 rounded-full bg-dolce-rosa-claro" />
               <Image
-                src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&h=600&fit=crop&q=80"
+                src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&h=600&fit=crop&q=75"
                 alt="Selecao de doces artesanais gourmet da Dolce Neves dispostos em uma caixa elegant"
                 fill
                 className="rounded-full object-cover p-3"
                 priority
+                fetchPriority="high"
                 sizes="(max-width: 640px) 320px, (max-width: 1024px) 384px, 448px"
               />
             </div>

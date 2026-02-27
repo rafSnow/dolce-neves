@@ -5,6 +5,7 @@ const PUBLIC_ROUTES = [
   "/",
   "/cardapio",
   "/monte-sua-caixa",
+  "/calculadora",
   "/corporativo",
   "/login",
   "/robots.txt",

@@ -69,13 +69,14 @@ export function PartyCalculatorPreview() {
             </Link>
           </div>
 
-          {/* Preview cards */}
+          {/* Preview cards — cada card leva à calculadora com a ocasião pré-selecionada */}
           <div className="relative">
             <div className="grid grid-cols-1 gap-4">
               {PREVIEW_OCCASIONS.map((occasion) => (
-                <div
+                <Link
                   key={occasion}
-                  className="bg-dolce-creme/50 rounded-2xl p-5 flex items-center gap-4"
+                  href={`/calculadora?ocasiao=${occasion}`}
+                  className="bg-dolce-creme/50 rounded-2xl p-5 flex items-center gap-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
                 >
                   <span className="text-3xl">{OCCASION_ICONS[occasion]}</span>
                   <div className="flex-1">
@@ -86,10 +87,7 @@ export function PartyCalculatorPreview() {
                       Descubra a quantidade ideal de doces
                     </p>
                   </div>
-                  <Link
-                    href="/calculadora"
-                    className="shrink-0 w-10 h-10 rounded-full bg-dolce-rosa/10 flex items-center justify-center hover:bg-dolce-rosa/20 transition-colors"
-                  >
+                  <span className="shrink-0 w-10 h-10 rounded-full bg-dolce-rosa/10 flex items-center justify-center">
                     <svg
                       width="16"
                       height="16"
@@ -100,14 +98,14 @@ export function PartyCalculatorPreview() {
                     >
                       <polyline points="9 18 15 12 9 6" />
                     </svg>
-                  </Link>
-                </div>
+                  </span>
+                </Link>
               ))}
             </div>
 
             {/* Decorative */}
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-dolce-rosa-claro/30 rounded-full blur-2xl" />
-            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-dolce-rosa/10 rounded-full blur-3xl" />
+            <div className="pointer-events-none absolute -top-4 -right-4 w-24 h-24 bg-dolce-rosa-claro/30 rounded-full blur-2xl" />
+            <div className="pointer-events-none absolute -bottom-4 -left-4 w-32 h-32 bg-dolce-rosa/10 rounded-full blur-3xl" />
           </div>
         </div>
       </div>
